@@ -1,4 +1,4 @@
-FROM node:17-slim
+FROM arm64v8/node
 WORKDIR /usr/app
 
 # Install dependencies and build the project.

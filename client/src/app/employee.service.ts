@@ -6,8 +6,8 @@ import { Employee } from './employee';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
-  private url = 'http://localhost:5200';
+export class EmployeeService {  
+  private url = 'http://172.16.1.4:30000';  
   private employees$: Subject<Employee[]> = new Subject();
 
   constructor(private httpClient: HttpClient) { }
