@@ -1,0 +1,22 @@
+172.16.1.6 node3 -> NFS server -> Almacenamiento -> DB
+172.16.1.5 node2
+172.16.1.4 node1
+172.16.1.3 server
+
+Snippets:
+
+#Shudown Raspberry
+sudo shutdown -h now
+
+ssh -t contollo@172.16.1.6 sudo shutdown -h now
+ssh -t contollo@172.16.1.5 sudo shutdown -h now
+ssh -t contollo@172.16.1.4 sudo shutdown -h now
+ssh -t contollo@172.16.1.3 sudo shutdown -h now
+
+#Change permissions in nfs folder
+chown -R 999:999 /srv/nfs
+
+#Enable NFS
+microk8s enable helm3
+microk8s helm3 repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+microk8s helm3 repo update
